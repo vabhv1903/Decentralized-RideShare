@@ -1,0 +1,2767 @@
+{
+  "contractName": "DriverRole",
+  "abi": [
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "DriverAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "DriverRemoved",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "isDriver",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "addDriver",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "renounceDriver",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"DriverAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"DriverRemoved\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"addDriver\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"isDriver\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"renounceDriver\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/tucker/Documents/SmartContracts/Decentralized-RideShare/contracts/accessControl/Driver.sol\":\"DriverRole\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/tucker/Documents/SmartContracts/Decentralized-RideShare/contracts/accessControl/Driver.sol\":{\"keccak256\":\"0x575cd57974d96d25e490c421b4d677495189e009231b6f9cea70620096071f40\",\"urls\":[\"bzz-raw://da5f9408dcbfcca854b921d27f9f580d8b252952640de1ee7ad87fe59c91ec11\",\"dweb:/ipfs/QmYsRbHYbcg27VZtdtA2jBjiUkXyrWZEB1jJgY9qYabANG\"]},\"/Users/tucker/Documents/SmartContracts/Decentralized-RideShare/contracts/accessControl/Roles.sol\":{\"keccak256\":\"0x6b3a371fda9dd25a137b7ef4a063a70ae1f742072c825157b954532c254707b6\",\"urls\":[\"bzz-raw://89becc9a1822f3189c10c1b0ec0b173edd2902874e7b2210eeb10800d3501686\",\"dweb:/ipfs/QmUqKVyzpzjrAxTX7PLz41ZcMNNmgD1gxthLj2XZxqDb3Z\"]},\"/Users/tucker/Documents/SmartContracts/Decentralized-RideShare/contracts/accessControl/User.sol\":{\"keccak256\":\"0x1c0a9c585a0160a2b21857b11d6e8feb53cdb54d108a53cc781fc296cdca6a9d\",\"urls\":[\"bzz-raw://b7b146f65fe8c9bf68a23fbd834396d2ce21b39f3dfd9d22ae5aa3f6987201be\",\"dweb:/ipfs/QmcdGBU8V2P8eS6M3tDb1u4vUbCiVL5pDCxbkJFMrv4mXo\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506100203361002560201b60201c565b610154565b61003d81600061008360201b6102431790919060201c565b8073ffffffffffffffffffffffffffffffffffffffff167fdbbfb8e5c4472ca1cb6356990ceb7c8914641ae04bca62338db7e815c3e5b93c60405160405180910390a250565b61009382826100fb60201b60201c565b1561009d57600080fd5b60018260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055505050565b60008260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b61035b806101636000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c806363a411c014610046578063ab9420361461008a578063d315e083146100e6575b600080fd5b6100886004803603602081101561005c57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506100f0565b005b6100cc600480360360208110156100a057600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061010e565b604051808215151515815260200191505060405180910390f35b6100ee61012b565b005b6100f93361010e565b61010257600080fd5b61010b81610136565b50565b600061012482600061019090919063ffffffff16565b9050919050565b610134336101e9565b565b61014a81600061024390919063ffffffff16565b8073ffffffffffffffffffffffffffffffffffffffff167fdbbfb8e5c4472ca1cb6356990ceb7c8914641ae04bca62338db7e815c3e5b93c60405160405180910390a250565b60008260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b6101fd8160006102b590919063ffffffff16565b8073ffffffffffffffffffffffffffffffffffffffff167fe5b325d2c088e6de57ff59e6a9e91e46c56ce6c1f8d7b80e3ab7ce5b8cd7e4b660405160405180910390a250565b61024d8282610190565b1561025757600080fd5b60018260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055505050565b6102bf8282610190565b6102c857600080fd5b60008260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550505056fea265627a7a72315820a31b335c1cab01c26ff139b76a4041a484fdaa4e5663adae52aa3c46a903705a64736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c806363a411c014610046578063ab9420361461008a578063d315e083146100e6575b600080fd5b6100886004803603602081101561005c57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506100f0565b005b6100cc600480360360208110156100a057600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061010e565b604051808215151515815260200191505060405180910390f35b6100ee61012b565b005b6100f93361010e565b61010257600080fd5b61010b81610136565b50565b600061012482600061019090919063ffffffff16565b9050919050565b610134336101e9565b565b61014a81600061024390919063ffffffff16565b8073ffffffffffffffffffffffffffffffffffffffff167fdbbfb8e5c4472ca1cb6356990ceb7c8914641ae04bca62338db7e815c3e5b93c60405160405180910390a250565b60008260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b6101fd8160006102b590919063ffffffff16565b8073ffffffffffffffffffffffffffffffffffffffff167fe5b325d2c088e6de57ff59e6a9e91e46c56ce6c1f8d7b80e3ab7ce5b8cd7e4b660405160405180910390a250565b61024d8282610190565b1561025757600080fd5b60018260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055505050565b6102bf8282610190565b6102c857600080fd5b60008260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550505056fea265627a7a72315820a31b335c1cab01c26ff139b76a4041a484fdaa4e5663adae52aa3c46a903705a64736f6c63430005100032",
+  "sourceMap": "191:1464:1:-;;;595:54;8:9:-1;5:2;;;30:1;27;20:12;5:2;595:54:1;622:22;633:10;622;;;:22;;:::i;:::-;191:1464;;1330:108;1382:20;1394:7;1382;:11;;;;;;:20;;;;:::i;:::-;1425:7;1413:20;;;;;;;;;;;;1330:108;:::o;245:169:2:-;356:18;360:4;366:7;356:3;;;:18;;:::i;:::-;355:19;347:28;;;;;;405:4;382;:11;;:20;394:7;382:20;;;;;;;;;;;;;;;;:27;;;;;;;;;;;;;;;;;;245:169;;:::o;730:168::-;814:4;873;:11;;:20;885:7;873:20;;;;;;;;;;;;;;;;;;;;;;;;;866:27;;730:168;;;;:::o;191:1464:1:-;;;;;;;",
+  "deployedSourceMap": "191:1464:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;191:1464:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1019:86;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1019:86:1;;;;;;;;;;;;;;;;;;;:::i;:::-;;860:100;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;860:100:1;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;1171:69;;;:::i;:::-;;1019:86;770:20;779:10;770:8;:20::i;:::-;762:29;;;;;;1081:19;1092:7;1081:10;:19::i;:::-;1019:86;:::o;860:100::-;916:4;935:20;947:7;935;:11;;:20;;;;:::i;:::-;928:27;;860:100;;;:::o;1171:69::-;1210:25;1224:10;1210:13;:25::i;:::-;1171:69::o;1330:108::-;1382:20;1394:7;1382;:11;;:20;;;;:::i;:::-;1425:7;1413:20;;;;;;;;;;;;1330:108;:::o;730:168:2:-;814:4;873;:11;;:20;885:7;873:20;;;;;;;;;;;;;;;;;;;;;;;;;866:27;;730:168;;;;:::o;1537:116:1:-;1592:23;1607:7;1592;:14;;:23;;;;:::i;:::-;1640:7;1626:22;;;;;;;;;;;;1537:116;:::o;245:169:2:-;356:18;360:4;366:7;356:3;:18::i;:::-;355:19;347:28;;;;;;405:4;382;:11;;:20;394:7;382:20;;;;;;;;;;;;;;;;:27;;;;;;;;;;;;;;;;;;245:169;;:::o;480:172::-;593:18;597:4;603:7;593:3;:18::i;:::-;585:27;;;;;;642:5;619:4;:11;;:20;631:7;619:20;;;;;;;;;;;;;;;;:28;;;;;;;;;;;;;;;;;;480:172;;:::o",
+  "source": "pragma solidity >=0.4.24;\n\n// Import the library 'Roles'\nimport \"./Roles.sol\";\nimport '../accessControl/User.sol';\n\n// Define a contract 'DriverRole' to manage this role - add, remove, check\ncontract DriverRole {\n  using Roles for Roles.Role;\n\n  // Define 2 events, one for Adding, and other for Removing\n  event DriverAdded(address indexed account);\n  event DriverRemoved(address indexed account);\n\n  // Define a struct 'Drivers' by inheriting from 'Roles' library, struct Role\n  Roles.Role private Drivers;\n\n  // In the constructor make the address that deploys this contract the 1st Driver\n  constructor() public {\n    _addDriver(msg.sender);\n  }\n\n  // Define a modifier that checks to see if msg.sender has the appropriate role\n  modifier onlyDriver() {\n    require(isDriver(msg.sender));\n    _;\n  }\n\n  // Define a function 'isDriver' to check this role\n  function isDriver(address account) public view returns (bool) {\n    return Drivers.has(account);\n  }\n\n  // Define a function 'addDriver' that adds this role\n  function addDriver(address account) public onlyDriver\n  {\n    _addDriver(account);\n  }\n\n  // Define a function 'renounceDriver' to renounce this role\n  function renounceDriver() public {\n    _removeDriver(msg.sender);\n  }\n\n  // Define an internal function '_addDriver' to add this role, called by 'addDriver'\n  function _addDriver(address account) internal {\n    Drivers.add(account);\n    emit DriverAdded(account);\n  }\n\n  // Define an internal function '_removeDriver' to remove this role, called by 'removeDriver'\n  function _removeDriver(address account) internal {\n    Drivers.remove(account);\n    emit DriverRemoved(account);\n  }\n}\n",
+  "sourcePath": "/Users/tucker/Documents/SmartContracts/Decentralized-RideShare/contracts/accessControl/Driver.sol",
+  "ast": {
+    "absolutePath": "/Users/tucker/Documents/SmartContracts/Decentralized-RideShare/contracts/accessControl/Driver.sol",
+    "exportedSymbols": {
+      "DriverRole": [
+        160
+      ]
+    },
+    "id": 161,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 58,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:25:1"
+      },
+      {
+        "absolutePath": "/Users/tucker/Documents/SmartContracts/Decentralized-RideShare/contracts/accessControl/Roles.sol",
+        "file": "./Roles.sol",
+        "id": 59,
+        "nodeType": "ImportDirective",
+        "scope": 161,
+        "sourceUnit": 231,
+        "src": "57:21:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/tucker/Documents/SmartContracts/Decentralized-RideShare/contracts/accessControl/User.sol",
+        "file": "../accessControl/User.sol",
+        "id": 60,
+        "nodeType": "ImportDirective",
+        "scope": 161,
+        "sourceUnit": 333,
+        "src": "79:35:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 160,
+        "linearizedBaseContracts": [
+          160
+        ],
+        "name": "DriverRole",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 63,
+            "libraryName": {
+              "contractScope": null,
+              "id": 61,
+              "name": "Roles",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 230,
+              "src": "221:5:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Roles_$230",
+                "typeString": "library Roles"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "215:27:1",
+            "typeName": {
+              "contractScope": null,
+              "id": 62,
+              "name": "Roles.Role",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 167,
+              "src": "231:10:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_Role_$167_storage_ptr",
+                "typeString": "struct Roles.Role"
+              }
+            }
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 67,
+            "name": "DriverAdded",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 66,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 65,
+                  "indexed": true,
+                  "name": "account",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 67,
+                  "src": "325:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 64,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "325:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "324:25:1"
+            },
+            "src": "307:43:1"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 71,
+            "name": "DriverRemoved",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 70,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 69,
+                  "indexed": true,
+                  "name": "account",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 71,
+                  "src": "373:23:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 68,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "373:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "372:25:1"
+            },
+            "src": "353:45:1"
+          },
+          {
+            "constant": false,
+            "id": 73,
+            "name": "Drivers",
+            "nodeType": "VariableDeclaration",
+            "scope": 160,
+            "src": "481:26:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_Role_$167_storage",
+              "typeString": "struct Roles.Role"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 72,
+              "name": "Roles.Role",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 167,
+              "src": "481:10:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_Role_$167_storage_ptr",
+                "typeString": "struct Roles.Role"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 81,
+              "nodeType": "Block",
+              "src": "616:33:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 77,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1897,
+                          "src": "633:3:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 78,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "633:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "id": 76,
+                      "name": "_addDriver",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 143,
+                      "src": "622:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 79,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "622:22:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 80,
+                  "nodeType": "ExpressionStatement",
+                  "src": "622:22:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 82,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 74,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "606:2:1"
+            },
+            "returnParameters": {
+              "id": 75,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "616:0:1"
+            },
+            "scope": 160,
+            "src": "595:54:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 92,
+              "nodeType": "Block",
+              "src": "756:47:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 86,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 1897,
+                              "src": "779:3:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 87,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "779:10:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address_payable",
+                              "typeString": "address payable"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address_payable",
+                              "typeString": "address payable"
+                            }
+                          ],
+                          "id": 85,
+                          "name": "isDriver",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 106,
+                          "src": "770:8:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_bool_$",
+                            "typeString": "function (address) view returns (bool)"
+                          }
+                        },
+                        "id": 88,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "770:20:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 84,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        1900,
+                        1901
+                      ],
+                      "referencedDeclaration": 1900,
+                      "src": "762:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 89,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "762:29:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 90,
+                  "nodeType": "ExpressionStatement",
+                  "src": "762:29:1"
+                },
+                {
+                  "id": 91,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "797:1:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 93,
+            "name": "onlyDriver",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 83,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "753:2:1"
+            },
+            "src": "734:69:1",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 105,
+              "nodeType": "Block",
+              "src": "922:38:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 102,
+                        "name": "account",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 95,
+                        "src": "947:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 100,
+                        "name": "Drivers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 73,
+                        "src": "935:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Role_$167_storage",
+                          "typeString": "struct Roles.Role storage ref"
+                        }
+                      },
+                      "id": 101,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "has",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 229,
+                      "src": "935:11:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_Role_$167_storage_ptr_$_t_address_$returns$_t_bool_$bound_to$_t_struct$_Role_$167_storage_ptr_$",
+                        "typeString": "function (struct Roles.Role storage pointer,address) view returns (bool)"
+                      }
+                    },
+                    "id": 103,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "935:20:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 99,
+                  "id": 104,
+                  "nodeType": "Return",
+                  "src": "928:27:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 106,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isDriver",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 96,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 95,
+                  "name": "account",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 106,
+                  "src": "878:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 94,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "878:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "877:17:1"
+            },
+            "returnParameters": {
+              "id": 99,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 98,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 106,
+                  "src": "916:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 97,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "916:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "915:6:1"
+            },
+            "scope": 160,
+            "src": "860:100:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 117,
+              "nodeType": "Block",
+              "src": "1075:30:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 114,
+                        "name": "account",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 108,
+                        "src": "1092:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 113,
+                      "name": "_addDriver",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 143,
+                      "src": "1081:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 115,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1081:19:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 116,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1081:19:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 118,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 111,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 110,
+                  "name": "onlyDriver",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 93,
+                  "src": "1062:10:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1062:10:1"
+              }
+            ],
+            "name": "addDriver",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 109,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 108,
+                  "name": "account",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 118,
+                  "src": "1038:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 107,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1038:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1037:17:1"
+            },
+            "returnParameters": {
+              "id": 112,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1075:0:1"
+            },
+            "scope": 160,
+            "src": "1019:86:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 126,
+              "nodeType": "Block",
+              "src": "1204:36:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 122,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1897,
+                          "src": "1224:3:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 123,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "1224:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "id": 121,
+                      "name": "_removeDriver",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 159,
+                      "src": "1210:13:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 124,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1210:25:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 125,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1210:25:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 127,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "renounceDriver",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 119,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1194:2:1"
+            },
+            "returnParameters": {
+              "id": 120,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1204:0:1"
+            },
+            "scope": 160,
+            "src": "1171:69:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 142,
+              "nodeType": "Block",
+              "src": "1376:62:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 135,
+                        "name": "account",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 129,
+                        "src": "1394:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 132,
+                        "name": "Drivers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 73,
+                        "src": "1382:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Role_$167_storage",
+                          "typeString": "struct Roles.Role storage ref"
+                        }
+                      },
+                      "id": 134,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "add",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 191,
+                      "src": "1382:11:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$167_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$167_storage_ptr_$",
+                        "typeString": "function (struct Roles.Role storage pointer,address)"
+                      }
+                    },
+                    "id": 136,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1382:20:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 137,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1382:20:1"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 139,
+                        "name": "account",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 129,
+                        "src": "1425:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 138,
+                      "name": "DriverAdded",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 67,
+                      "src": "1413:11:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 140,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1413:20:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 141,
+                  "nodeType": "EmitStatement",
+                  "src": "1408:25:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 143,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_addDriver",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 130,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 129,
+                  "name": "account",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 143,
+                  "src": "1350:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 128,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1350:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1349:17:1"
+            },
+            "returnParameters": {
+              "id": 131,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1376:0:1"
+            },
+            "scope": 160,
+            "src": "1330:108:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 158,
+              "nodeType": "Block",
+              "src": "1586:67:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 151,
+                        "name": "account",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 145,
+                        "src": "1607:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 148,
+                        "name": "Drivers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 73,
+                        "src": "1592:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Role_$167_storage",
+                          "typeString": "struct Roles.Role storage ref"
+                        }
+                      },
+                      "id": 150,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "remove",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 214,
+                      "src": "1592:14:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$167_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$167_storage_ptr_$",
+                        "typeString": "function (struct Roles.Role storage pointer,address)"
+                      }
+                    },
+                    "id": 152,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1592:23:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 153,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1592:23:1"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 155,
+                        "name": "account",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 145,
+                        "src": "1640:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 154,
+                      "name": "DriverRemoved",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 71,
+                      "src": "1626:13:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address)"
+                      }
+                    },
+                    "id": 156,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1626:22:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 157,
+                  "nodeType": "EmitStatement",
+                  "src": "1621:27:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 159,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_removeDriver",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 146,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 145,
+                  "name": "account",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 159,
+                  "src": "1560:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 144,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1560:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1559:17:1"
+            },
+            "returnParameters": {
+              "id": 147,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1586:0:1"
+            },
+            "scope": 160,
+            "src": "1537:116:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 161,
+        "src": "191:1464:1"
+      }
+    ],
+    "src": "0:1656:1"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/Users/tucker/Documents/SmartContracts/Decentralized-RideShare/contracts/accessControl/Driver.sol",
+      "exportedSymbols": {
+        "DriverRole": [
+          160
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.4",
+            ".24"
+          ]
+        },
+        "id": 58,
+        "name": "PragmaDirective",
+        "src": "0:25:1"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 231,
+          "absolutePath": "/Users/tucker/Documents/SmartContracts/Decentralized-RideShare/contracts/accessControl/Roles.sol",
+          "file": "./Roles.sol",
+          "scope": 161,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 59,
+        "name": "ImportDirective",
+        "src": "57:21:1"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 333,
+          "absolutePath": "/Users/tucker/Documents/SmartContracts/Decentralized-RideShare/contracts/accessControl/User.sol",
+          "file": "../accessControl/User.sol",
+          "scope": 161,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 60,
+        "name": "ImportDirective",
+        "src": "79:35:1"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            160
+          ],
+          "name": "DriverRole",
+          "scope": 161
+        },
+        "children": [
+          {
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "Roles",
+                  "referencedDeclaration": 230,
+                  "type": "library Roles"
+                },
+                "id": 61,
+                "name": "UserDefinedTypeName",
+                "src": "221:5:1"
+              },
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "Roles.Role",
+                  "referencedDeclaration": 167,
+                  "type": "struct Roles.Role"
+                },
+                "id": 62,
+                "name": "UserDefinedTypeName",
+                "src": "231:10:1"
+              }
+            ],
+            "id": 63,
+            "name": "UsingForDirective",
+            "src": "215:27:1"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "documentation": null,
+              "name": "DriverAdded"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "name": "account",
+                      "scope": 67,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 64,
+                        "name": "ElementaryTypeName",
+                        "src": "325:7:1"
+                      }
+                    ],
+                    "id": 65,
+                    "name": "VariableDeclaration",
+                    "src": "325:23:1"
+                  }
+                ],
+                "id": 66,
+                "name": "ParameterList",
+                "src": "324:25:1"
+              }
+            ],
+            "id": 67,
+            "name": "EventDefinition",
+            "src": "307:43:1"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "documentation": null,
+              "name": "DriverRemoved"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "name": "account",
+                      "scope": 71,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 68,
+                        "name": "ElementaryTypeName",
+                        "src": "373:7:1"
+                      }
+                    ],
+                    "id": 69,
+                    "name": "VariableDeclaration",
+                    "src": "373:23:1"
+                  }
+                ],
+                "id": 70,
+                "name": "ParameterList",
+                "src": "372:25:1"
+              }
+            ],
+            "id": 71,
+            "name": "EventDefinition",
+            "src": "353:45:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "Drivers",
+              "scope": 160,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "struct Roles.Role",
+              "value": null,
+              "visibility": "private"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "Roles.Role",
+                  "referencedDeclaration": 167,
+                  "type": "struct Roles.Role"
+                },
+                "id": 72,
+                "name": "UserDefinedTypeName",
+                "src": "481:10:1"
+              }
+            ],
+            "id": 73,
+            "name": "VariableDeclaration",
+            "src": "481:26:1"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "scope": 160,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 74,
+                "name": "ParameterList",
+                "src": "606:2:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 75,
+                "name": "ParameterList",
+                "src": "616:0:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address_payable",
+                                  "typeString": "address payable"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 143,
+                              "type": "function (address)",
+                              "value": "_addDriver"
+                            },
+                            "id": 76,
+                            "name": "Identifier",
+                            "src": "622:10:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address payable"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 1897,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 77,
+                                "name": "Identifier",
+                                "src": "633:3:1"
+                              }
+                            ],
+                            "id": 78,
+                            "name": "MemberAccess",
+                            "src": "633:10:1"
+                          }
+                        ],
+                        "id": 79,
+                        "name": "FunctionCall",
+                        "src": "622:22:1"
+                      }
+                    ],
+                    "id": 80,
+                    "name": "ExpressionStatement",
+                    "src": "622:22:1"
+                  }
+                ],
+                "id": 81,
+                "name": "Block",
+                "src": "616:33:1"
+              }
+            ],
+            "id": 82,
+            "name": "FunctionDefinition",
+            "src": "595:54:1"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "name": "onlyDriver",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 83,
+                "name": "ParameterList",
+                "src": "753:2:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                1900,
+                                1901
+                              ],
+                              "referencedDeclaration": 1900,
+                              "type": "function (bool) pure",
+                              "value": "require"
+                            },
+                            "id": 84,
+                            "name": "Identifier",
+                            "src": "762:7:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "bool",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_address_payable",
+                                      "typeString": "address payable"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 106,
+                                  "type": "function (address) view returns (bool)",
+                                  "value": "isDriver"
+                                },
+                                "id": 85,
+                                "name": "Identifier",
+                                "src": "770:8:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "sender",
+                                  "referencedDeclaration": null,
+                                  "type": "address payable"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 1897,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 86,
+                                    "name": "Identifier",
+                                    "src": "779:3:1"
+                                  }
+                                ],
+                                "id": 87,
+                                "name": "MemberAccess",
+                                "src": "779:10:1"
+                              }
+                            ],
+                            "id": 88,
+                            "name": "FunctionCall",
+                            "src": "770:20:1"
+                          }
+                        ],
+                        "id": 89,
+                        "name": "FunctionCall",
+                        "src": "762:29:1"
+                      }
+                    ],
+                    "id": 90,
+                    "name": "ExpressionStatement",
+                    "src": "762:29:1"
+                  },
+                  {
+                    "id": 91,
+                    "name": "PlaceholderStatement",
+                    "src": "797:1:1"
+                  }
+                ],
+                "id": 92,
+                "name": "Block",
+                "src": "756:47:1"
+              }
+            ],
+            "id": 93,
+            "name": "ModifierDefinition",
+            "src": "734:69:1"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "isDriver",
+              "scope": 160,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "account",
+                      "scope": 106,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 94,
+                        "name": "ElementaryTypeName",
+                        "src": "878:7:1"
+                      }
+                    ],
+                    "id": 95,
+                    "name": "VariableDeclaration",
+                    "src": "878:15:1"
+                  }
+                ],
+                "id": 96,
+                "name": "ParameterList",
+                "src": "877:17:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 106,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 97,
+                        "name": "ElementaryTypeName",
+                        "src": "916:4:1"
+                      }
+                    ],
+                    "id": 98,
+                    "name": "VariableDeclaration",
+                    "src": "916:4:1"
+                  }
+                ],
+                "id": 99,
+                "name": "ParameterList",
+                "src": "915:6:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 99
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "bool",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "has",
+                              "referencedDeclaration": 229,
+                              "type": "function (struct Roles.Role storage pointer,address) view returns (bool)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 73,
+                                  "type": "struct Roles.Role storage ref",
+                                  "value": "Drivers"
+                                },
+                                "id": 100,
+                                "name": "Identifier",
+                                "src": "935:7:1"
+                              }
+                            ],
+                            "id": 101,
+                            "name": "MemberAccess",
+                            "src": "935:11:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 95,
+                              "type": "address",
+                              "value": "account"
+                            },
+                            "id": 102,
+                            "name": "Identifier",
+                            "src": "947:7:1"
+                          }
+                        ],
+                        "id": 103,
+                        "name": "FunctionCall",
+                        "src": "935:20:1"
+                      }
+                    ],
+                    "id": 104,
+                    "name": "Return",
+                    "src": "928:27:1"
+                  }
+                ],
+                "id": 105,
+                "name": "Block",
+                "src": "922:38:1"
+              }
+            ],
+            "id": 106,
+            "name": "FunctionDefinition",
+            "src": "860:100:1"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "addDriver",
+              "scope": 160,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "account",
+                      "scope": 118,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 107,
+                        "name": "ElementaryTypeName",
+                        "src": "1038:7:1"
+                      }
+                    ],
+                    "id": 108,
+                    "name": "VariableDeclaration",
+                    "src": "1038:15:1"
+                  }
+                ],
+                "id": 109,
+                "name": "ParameterList",
+                "src": "1037:17:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 112,
+                "name": "ParameterList",
+                "src": "1075:0:1"
+              },
+              {
+                "attributes": {
+                  "arguments": null
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 93,
+                      "type": "modifier ()",
+                      "value": "onlyDriver"
+                    },
+                    "id": 110,
+                    "name": "Identifier",
+                    "src": "1062:10:1"
+                  }
+                ],
+                "id": 111,
+                "name": "ModifierInvocation",
+                "src": "1062:10:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 143,
+                              "type": "function (address)",
+                              "value": "_addDriver"
+                            },
+                            "id": 113,
+                            "name": "Identifier",
+                            "src": "1081:10:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 108,
+                              "type": "address",
+                              "value": "account"
+                            },
+                            "id": 114,
+                            "name": "Identifier",
+                            "src": "1092:7:1"
+                          }
+                        ],
+                        "id": 115,
+                        "name": "FunctionCall",
+                        "src": "1081:19:1"
+                      }
+                    ],
+                    "id": 116,
+                    "name": "ExpressionStatement",
+                    "src": "1081:19:1"
+                  }
+                ],
+                "id": 117,
+                "name": "Block",
+                "src": "1075:30:1"
+              }
+            ],
+            "id": 118,
+            "name": "FunctionDefinition",
+            "src": "1019:86:1"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "renounceDriver",
+              "scope": 160,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 119,
+                "name": "ParameterList",
+                "src": "1194:2:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 120,
+                "name": "ParameterList",
+                "src": "1204:0:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address_payable",
+                                  "typeString": "address payable"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 159,
+                              "type": "function (address)",
+                              "value": "_removeDriver"
+                            },
+                            "id": 121,
+                            "name": "Identifier",
+                            "src": "1210:13:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address payable"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 1897,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 122,
+                                "name": "Identifier",
+                                "src": "1224:3:1"
+                              }
+                            ],
+                            "id": 123,
+                            "name": "MemberAccess",
+                            "src": "1224:10:1"
+                          }
+                        ],
+                        "id": 124,
+                        "name": "FunctionCall",
+                        "src": "1210:25:1"
+                      }
+                    ],
+                    "id": 125,
+                    "name": "ExpressionStatement",
+                    "src": "1210:25:1"
+                  }
+                ],
+                "id": 126,
+                "name": "Block",
+                "src": "1204:36:1"
+              }
+            ],
+            "id": 127,
+            "name": "FunctionDefinition",
+            "src": "1171:69:1"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "_addDriver",
+              "scope": 160,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "account",
+                      "scope": 143,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 128,
+                        "name": "ElementaryTypeName",
+                        "src": "1350:7:1"
+                      }
+                    ],
+                    "id": 129,
+                    "name": "VariableDeclaration",
+                    "src": "1350:15:1"
+                  }
+                ],
+                "id": 130,
+                "name": "ParameterList",
+                "src": "1349:17:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 131,
+                "name": "ParameterList",
+                "src": "1376:0:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "add",
+                              "referencedDeclaration": 191,
+                              "type": "function (struct Roles.Role storage pointer,address)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 73,
+                                  "type": "struct Roles.Role storage ref",
+                                  "value": "Drivers"
+                                },
+                                "id": 132,
+                                "name": "Identifier",
+                                "src": "1382:7:1"
+                              }
+                            ],
+                            "id": 134,
+                            "name": "MemberAccess",
+                            "src": "1382:11:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 129,
+                              "type": "address",
+                              "value": "account"
+                            },
+                            "id": 135,
+                            "name": "Identifier",
+                            "src": "1394:7:1"
+                          }
+                        ],
+                        "id": 136,
+                        "name": "FunctionCall",
+                        "src": "1382:20:1"
+                      }
+                    ],
+                    "id": 137,
+                    "name": "ExpressionStatement",
+                    "src": "1382:20:1"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 67,
+                              "type": "function (address)",
+                              "value": "DriverAdded"
+                            },
+                            "id": 138,
+                            "name": "Identifier",
+                            "src": "1413:11:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 129,
+                              "type": "address",
+                              "value": "account"
+                            },
+                            "id": 139,
+                            "name": "Identifier",
+                            "src": "1425:7:1"
+                          }
+                        ],
+                        "id": 140,
+                        "name": "FunctionCall",
+                        "src": "1413:20:1"
+                      }
+                    ],
+                    "id": 141,
+                    "name": "EmitStatement",
+                    "src": "1408:25:1"
+                  }
+                ],
+                "id": 142,
+                "name": "Block",
+                "src": "1376:62:1"
+              }
+            ],
+            "id": 143,
+            "name": "FunctionDefinition",
+            "src": "1330:108:1"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "_removeDriver",
+              "scope": 160,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "account",
+                      "scope": 159,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 144,
+                        "name": "ElementaryTypeName",
+                        "src": "1560:7:1"
+                      }
+                    ],
+                    "id": 145,
+                    "name": "VariableDeclaration",
+                    "src": "1560:15:1"
+                  }
+                ],
+                "id": 146,
+                "name": "ParameterList",
+                "src": "1559:17:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 147,
+                "name": "ParameterList",
+                "src": "1586:0:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "remove",
+                              "referencedDeclaration": 214,
+                              "type": "function (struct Roles.Role storage pointer,address)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 73,
+                                  "type": "struct Roles.Role storage ref",
+                                  "value": "Drivers"
+                                },
+                                "id": 148,
+                                "name": "Identifier",
+                                "src": "1592:7:1"
+                              }
+                            ],
+                            "id": 150,
+                            "name": "MemberAccess",
+                            "src": "1592:14:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 145,
+                              "type": "address",
+                              "value": "account"
+                            },
+                            "id": 151,
+                            "name": "Identifier",
+                            "src": "1607:7:1"
+                          }
+                        ],
+                        "id": 152,
+                        "name": "FunctionCall",
+                        "src": "1592:23:1"
+                      }
+                    ],
+                    "id": 153,
+                    "name": "ExpressionStatement",
+                    "src": "1592:23:1"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 71,
+                              "type": "function (address)",
+                              "value": "DriverRemoved"
+                            },
+                            "id": 154,
+                            "name": "Identifier",
+                            "src": "1626:13:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 145,
+                              "type": "address",
+                              "value": "account"
+                            },
+                            "id": 155,
+                            "name": "Identifier",
+                            "src": "1640:7:1"
+                          }
+                        ],
+                        "id": 156,
+                        "name": "FunctionCall",
+                        "src": "1626:22:1"
+                      }
+                    ],
+                    "id": 157,
+                    "name": "EmitStatement",
+                    "src": "1621:27:1"
+                  }
+                ],
+                "id": 158,
+                "name": "Block",
+                "src": "1586:67:1"
+              }
+            ],
+            "id": 159,
+            "name": "FunctionDefinition",
+            "src": "1537:116:1"
+          }
+        ],
+        "id": 160,
+        "name": "ContractDefinition",
+        "src": "191:1464:1"
+      }
+    ],
+    "id": 161,
+    "name": "SourceUnit",
+    "src": "0:1656:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {
+    "4": {
+      "events": {
+        "0xdbbfb8e5c4472ca1cb6356990ceb7c8914641ae04bca62338db7e815c3e5b93c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "DriverAdded",
+          "type": "event"
+        },
+        "0xe5b325d2c088e6de57ff59e6a9e91e46c56ce6c1f8d7b80e3ab7ce5b8cd7e4b6": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "DriverRemoved",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xd2207BB241Cc4354BB216b2985F96C6A3c42a307",
+      "transactionHash": "0xd205c0d4b6c48654e9b3fe686a91ee9d9970ecf0b4fa939b89e209eb753f03f1"
+    },
+    "5777": {
+      "events": {
+        "0xdbbfb8e5c4472ca1cb6356990ceb7c8914641ae04bca62338db7e815c3e5b93c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "DriverAdded",
+          "type": "event"
+        },
+        "0xe5b325d2c088e6de57ff59e6a9e91e46c56ce6c1f8d7b80e3ab7ce5b8cd7e4b6": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "DriverRemoved",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x4Ef2d9a8E3a7037B622622434a3d28f0e3bf3544",
+      "transactionHash": "0x51faa6b1ebcff9a9494bb9c82aadf181b57644a249dcdc00a5dccc50ec0957ec"
+    }
+  },
+  "schemaVersion": "3.3.3",
+  "updatedAt": "2021-04-19T01:57:41.516Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
