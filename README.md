@@ -1,10 +1,12 @@
 
 ![App Pic](Diagrams/appPic.png)
 
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)]()
+
 ![Swift 5](https://img.shields.io/badge/Swift-5-orange.svg)
 ![web3](https://img.shields.io/badge/web3-support-blue.svg?style=flat)
 ![](https://img.shields.io/badge/platform-iOS-lightgray.svg?style=flat)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)]()
+![](https://img.shields.io/badge/Language-Solidity-yellowgreen)
 
 # Decentralized Ride Sharing 
 
@@ -300,7 +302,9 @@ function driverConfirmsDropOff(address _rideID) public
 
 ### 📱 iOS App
 
-![Decent Ride Demo](Decentralized_Ride_Demo.gif)
+![Decent Ride Demo](Diagrams/Decentralized_Ride_Demo.gif)
+
+
 
 The app design shoots for functionality and demonstration. It is worked in progress. Consisting of two view controllers (Login View Controller and Ride View Controller) and a Navigation controller. The app utilizes [Swift Web3 library](https://github.com/skywinder/web3swift) for all contract and wallet interactions. For simplicity, the single app is share between passenger and driver; working on two networks Ganache and Rinkeby.
 
