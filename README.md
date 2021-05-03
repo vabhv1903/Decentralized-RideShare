@@ -10,7 +10,7 @@
 
 # Decentralized Ride Sharing 
 
-This project demonstrates how a ride sharing architecture could be built and managed entirety by a smart contract within the Ethereum blockchain. Companioned by a iOS app provides a seemless experanice.
+This project demonstrates how a ride sharing architecture could be built and managed entirety by a smart contract within the Ethereum blockchain. Companioned by a iOS app provides a seamless experience.
 
 ---
 
