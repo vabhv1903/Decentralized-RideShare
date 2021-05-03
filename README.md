@@ -17,7 +17,7 @@ This project demonstrates how a ride sharing architecture could be built and man
   * [Requirements](#requirements)
   * [Project State](#project-state)
   * [Ride Architecture](#ride-architecture)
-    + [Subscribtions ](#subscriptions-emitted-events)
+    + [Subscriptions ](#subscriptions-emitted-events)
   * [Findings](#findings)
     + [Upside](#upside)
     + [Potential Shortcomings](#potential-shortcomings)
@@ -68,8 +68,8 @@ Passenger address is used as the ride ID for easy lookup and prevents a single a
 
 - <b>Driver Accepts Ride</b>
 
-    - Driver has accept the ride and is waiting for user to confirm picked up.
-    - When the driver accepted ride, user is notifiyed and the driver's Ether address is set within the ride.
+    - Driver has accepted the ride and is waiting for user to confirm picked up.
+    - When the driver accepted ride, user is notified and the driver's Ether address is set within the ride.
     - Passenger get full refund if canceled. 
     - If canceled by driver, state will return to Passenger Request Ride.
 
@@ -92,9 +92,9 @@ Passenger address is used as the ride ID for easy lookup and prevents a single a
     - Ride has been canceled.
     
  
-### subscriptions (Emitted Events)
+### Subscriptions (Emitted Events)
 
-Events are emitted when a contract method is called that changes the ride state. Thus by subscribing to events allows both parties to be notified with the new ride state or confirming the call was successful. 
+Events are emitted when a contract method is called that changes the ride state. Thus, by subscribing to events allows both parties to be notified with the new ride state or confirming the call was successful. 
 
 
 
@@ -120,7 +120,7 @@ __Note: Refer to [Smart Contracts](#smart-contracts) segment of the read me for 
 
 ### Potential Shortcomings
 
-- This architecture is missing geolocation based ride action for drivers.
+- This architecture is missing geo location based ride action for drivers.
 
 - No support.
 
@@ -157,7 +157,7 @@ Consists of three contracts written in Solidity.
 
 Ride.sol breaks down into five sections:
 
-- Varaibles
+- Variables
 - Events
 - Modifiers
 - Constructor / Deconstructor
