@@ -45,16 +45,16 @@ This project demonstrates how a ride sharing architecture could be built and man
 
 ## Project State 
 
-As of now this project is just a concept and the contract is only deployed on Rinkeby Test Network. I dont recommend deploying on the mainnet in the current state. There is more testing and overall improvements to be done.
+As of now this project is just a concept and the contract is only deployed on Rinkeby Test Network. I dont recommend deploying on the main net in the current state. There is more testing and overall improvements to be done.
 
 ### Contribute 
 
-There are pently of parts that could be improved or extended therefore contribution is welcome. Go Wild!
+There are plenty of parts that could be improved or extended therefore contribution is welcome. Go Wild!
 
 
 ## Ride Architecture
 
-Simply the ride has four steps from start to finish, any where within the ride is cancable by either party. The contract keeps track of the steps by using 6 different ride states. These states cannot be skipped and only be called from the correct party. Here are some important topics for each state.
+Simply the ride has four steps from start to finish, anywhere within the ride is cancellable by either party. The contract keeps track of the steps by using 6 different ride states. These states cannot be skipped and only be called from the correct party. Here are some important topics for each state.
 
 Passenger address is used as the ride ID for easy lookup and prevents a single address from having two outstanding rides.
 
@@ -62,20 +62,20 @@ Passenger address is used as the ride ID for easy lookup and prevents a single a
 
 - <b>Passenger Request Ride</b>
 
-    - Passenger request a ride and is waiting for a driver to accept the ride. 
+    - Passenger requests a ride and is waiting for a driver to accept the ride.
     - When the request is made, user sends price of ride in Ether which gets held by the contract.
     - Passenger get full refund if ride is canceled.
 
 - <b>Driver Accepts Ride</b>
 
     - Driver has accept the ride and is waiting for user to confirm picked up.
-    - When the driver accepts ride, user is notifiyed and the driver's Ether address is set within the ride.
+    - When the driver accepted ride, user is notifiyed and the driver's Ether address is set within the ride.
     - Passenger get full refund if canceled. 
     - If canceled by driver, state will return to Passenger Request Ride.
 
 - <b>Passenger Confirms Pick Up</b>
 
-    - Passenger confirms pick up and is waiting to be drop off by driver.
+    - Passenger confirms pick up and is waiting to be dropped off by driver.
     - Driver cut is 25%, passenger cut is 75% if canceled. 
 
 - <b>Driver Confirms Drop Off</b>
