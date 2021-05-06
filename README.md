@@ -102,7 +102,7 @@ Events are emitted when a contract method is called that changes the ride state.
 
 I found that a contract with too few steps allows for easy manipulate. Too many steps get complicated and relying heavily on users. A four step contract enables driver and passenger to facilitate their roles without complication and eliminates bad actors to a degree. Possible a three step contract may also work. 
 
-__Note: Refer to [Smart Contracts](#smart-contracts) segment of the read me for how this is programmed.__
+__Note: Refer to [Smart Contracts](#📄-smart-contracts) segment of the read me for how this is programmed.__
 
 ### Upside
 
