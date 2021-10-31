@@ -9,7 +9,7 @@ contract('Ride', function(accounts) {
     const userID = accounts[1]
     const user2ID = accounts[3]
     const userName = "John Doe"
-    const userPickUpAddress = "6491 S Spotswood St, Littleton, CO 80120"
+    const userPickUpAddress = "Denver, CO"
     const userDropOffAddress = "Winter Park, CO 80482"
     const userVehicleRequestType = "Car"
     const ridePrice = web3.utils.toWei('10', "ether")
